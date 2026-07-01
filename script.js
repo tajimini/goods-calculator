@@ -133,10 +133,40 @@ function calculate(type) {
   return { total, cards, next };
 }
 
+function calculateUser(user) {
+  let preorder = 0;
+  let venue = 0;
+
+  products.forEach(product => {
+    preorder += product.price * data[user][product.id].preorder;
+    venue += product.price * data[user][product.id].venue;
+  });
+
+  const total = preorder + venue;
+
+  return {
+    total,
+    cards: Math.floor(total / bonusUnit)
+  };
+}
+
 function updateSummary() {
   const preorder = calculate("preorder");
   const venue = calculate("venue");
   const grandTotal = preorder.total + venue.total;
+  const self = calculateUser("self");
+　const proxy1 = calculateUser("proxy1");
+　const proxy2 = calculateUser("proxy2");
+
+　const allTotal =
+  　self.total +
+ 　 proxy1.total +
+ 　 proxy2.total;
+
+　const allCards =
+ 　 self.cards +
+  　proxy1.cards +
+ 　 proxy2.cards;
 
   document.getElementById("preorderTotal").textContent = formatYen(preorder.total);
   document.getElementById("preorderCards").textContent = preorder.cards;
@@ -147,6 +177,18 @@ function updateSummary() {
   document.getElementById("venueNext").textContent = formatYen(venue.next);
 
   document.getElementById("grandTotal").textContent = formatYen(grandTotal);
+  
+  document.getElementById("selfTotal").textContent = formatYen(self.total);
+　document.getElementById("selfCards").textContent = self.cards;
+
+　document.getElementById("proxy1Total").textContent = formatYen(proxy1.total);
+　document.getElementById("proxy1Cards").textContent = proxy1.cards;
+
+　document.getElementById("proxy2Total").textContent = formatYen(proxy2.total);
+　document.getElementById("proxy2Cards").textContent = proxy2.cards;
+
+　document.getElementById("allTotal").textContent = formatYen(allTotal);
+　document.getElementById("allCards").textContent = allCards;
 }
 
 document.querySelectorAll(".tab").forEach(tab => {
