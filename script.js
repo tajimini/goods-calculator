@@ -2,11 +2,16 @@ const bonusUnit = 7000;
 const storageKey = "goodsCalculatorData";
 
 const products = [
-  { id: "photo", name: "ランダムトレカ", price: 1100 },
-  { id: "acsta", name: "アクスタ", price: 1400 },
-  { id: "uchiwa", name: "うちわ", price: 800 },
-  { id: "tshirt", name: "Tシャツ", price: 4000 },
-  { id: "towel", name: "タオル", price: 2500 }
+  { id: "photo", name: "BIGうちわ", price: 1100 },
+  { id: "acsta", name: "アクリルスタンド", price: 1100 },
+  { id: "uchiwa", name: "缶バッジ", price: 500 },
+  { id: "tshirt", name: "トレーディングカード", price: 1100 },
+  { id: "towel", name: "フェイスタオル", price: 2700 }
+  { id: "towel", name: "コレクティングバインダー", price: 3300 }
+  { id: "towel", name: "Tシャツ", price: 5500 }
+  { id: "towel", name: "ポロシャツ", price: 5700 }
+  { id: "towel", name: "トートバッグ", price: 5500 }
+  { id: "towel", name: "ポーチ", price: 3500 }
 ];
 
 let currentUser = "self";
