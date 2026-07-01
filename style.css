@@ -1,0 +1,113 @@
+body {
+  margin: 0;
+  background: #f7f3f8;
+  font-family: system-ui, sans-serif;
+  color: #333;
+}
+
+.app {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 28px;
+}
+
+.tabs {
+  display: flex;
+  gap: 8px;
+  margin: 20px 0;
+}
+
+.tab {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 999px;
+  background: #e7ddea;
+  font-weight: bold;
+}
+
+.tab.active {
+  background: #b784c7;
+  color: white;
+}
+
+.item {
+  background: white;
+  border-radius: 18px;
+  padding: 16px;
+  margin-bottom: 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.item-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  font-weight: bold;
+}
+
+.counter-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+.counter {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.counter button {
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  background: #d9c1df;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.count {
+  min-width: 24px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.summary {
+  margin-top: 24px;
+}
+
+.summary-card {
+  background: white;
+  border-radius: 18px;
+  padding: 16px;
+  margin-bottom: 12px;
+}
+
+.summary-card h2 {
+  margin-top: 0;
+  font-size: 18px;
+}
+
+.total {
+  background: #efe1f3;
+  font-weight: bold;
+}
+
+.reset {
+  width: 100%;
+  margin-top: 12px;
+  padding: 14px;
+  border: none;
+  border-radius: 999px;
+  background: #555;
+  color: white;
+  font-weight: bold;
+}
