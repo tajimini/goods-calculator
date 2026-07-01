@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>グッズ計算機</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <h1>グッズ計算機</h1>
+
+    <div class="tabs">
+      <button class="tab active" data-user="self">自分</button>
+      <button class="tab" data-user="proxy1">代行①</button>
+      <button class="tab" data-user="proxy2">代行②</button>
+    </div>
+
+    <section id="items" class="items"></section>
+
+    <section class="summary">
+      <div class="summary-card">
+        <h2>事前予約分</h2>
+        <p>合計：<span id="preorderTotal">0</span>円</p>
+        <p>トレカ：<span id="preorderCards">0</span>枚</p>
+        <p>次のトレカまで：<span id="preorderNext">0</span>円</p>
+      </div>
+
+      <div class="summary-card">
+        <h2>会場購入分</h2>
+        <p>合計：<span id="venueTotal">0</span>円</p>
+        <p>トレカ：<span id="venueCards">0</span>枚</p>
+        <p>次のトレカまで：<span id="venueNext">0</span>円</p>
+      </div>
+
+      <div class="summary-card total">
+        <h2>総合計</h2>
+        <p><span id="grandTotal">0</span>円</p>
+      </div>
+    </section>
+
+    <button id="resetBtn" class="reset">入力をリセット</button>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
