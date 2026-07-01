@@ -2,16 +2,16 @@ const bonusUnit = 7000;
 const storageKey = "goodsCalculatorData";
 
 const products = [
-  { id: "photo", name: "BIGうちわ", price: 1100 },
-  { id: "acsta", name: "アクリルスタンド", price: 1100 },
-  { id: "uchiwa", name: "缶バッジ", price: 500 },
-  { id: "tshirt", name: "トレーディングカード", price: 1100 },
-  { id: "towel", name: "フェイスタオル", price: 2700 }
-  { id: "towel", name: "コレクティングバインダー", price: 3300 }
-  { id: "towel", name: "Tシャツ", price: 5500 }
-  { id: "towel", name: "ポロシャツ", price: 5700 }
-  { id: "towel", name: "トートバッグ", price: 5500 }
-  { id: "towel", name: "ポーチ", price: 3500 }
+  { id: "big_uchiwa", name: "BIGうちわ", price: 1100 },
+  { id: "acrylic_stand", name: "アクリルスタンド", price: 1100 },
+  { id: "badge", name: "缶バッジ", price: 500 },
+  { id: "trading_card", name: "トレーディングカード", price: 1100 },
+  { id: "face_towel", name: "フェイスタオル", price: 2700 },
+  { id: "binder", name: "コレクティングバインダー", price: 3300 },
+  { id: "tshirt", name: "Tシャツ", price: 5500 },
+  { id: "polo_shirt", name: "ポロシャツ", price: 5700 },
+  { id: "tote_bag", name: "トートバッグ", price: 5500 },
+  { id: "pouch", name: "ポーチ", price: 3500 }
 ];
 
 let currentUser = "self";
@@ -151,22 +151,19 @@ function calculateUser(user) {
 }
 
 function updateSummary() {
-  const preorder = calculate("preorder");
-  const venue = calculate("venue");
-  const grandTotal = preorder.total + venue.total;
-  const self = calculateUser("self");
-　const proxy1 = calculateUser("proxy1");
-　const proxy2 = calculateUser("proxy2");
+const self = calculateUser("self");
+const proxy1 = calculateUser("proxy1");
+const proxy2 = calculateUser("proxy2");
 
-　const allTotal =
-  　self.total +
- 　 proxy1.total +
- 　 proxy2.total;
+const allTotal =
+  self.total +
+  proxy1.total +
+  proxy2.total;
 
-　const allCards =
- 　 self.cards +
-  　proxy1.cards +
- 　 proxy2.cards;
+const allCards =
+  self.cards +
+  proxy1.cards +
+  proxy2.cards;
 
   document.getElementById("preorderTotal").textContent = formatYen(preorder.total);
   document.getElementById("preorderCards").textContent = preorder.cards;
