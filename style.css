@@ -96,10 +96,6 @@ h1::after {
   cursor: pointer;
 }
 
-.tab::before {
-  content: "☆ ";
-}
-
 .tab.active {
   color: #ffffff;
   background: linear-gradient(135deg, #9b84df, #7e68c9);
@@ -120,7 +116,7 @@ h1::after {
 }
 
 .items::before {
-  content: "🛍 グッズ一覧";
+  content: "グッズ一覧";
   display: block;
   margin-bottom: 16px;
   padding-bottom: 14px;
