@@ -63,14 +63,25 @@ body::after {
 }
 
 h1 {
-  margin: 0 0 6px;
-  font-family: "Times New Roman", "Yu Mincho", serif;
-  font-size: 46px;
+  text-align: center;
+  margin: 0 0 24px;
+}
+
+h1 span {
+  display: block;
+  font-family: "Times New Roman", serif;
+  font-size: 44px;
   font-style: italic;
-  font-weight: 400;
-  letter-spacing: 0.03em;
   color: #8775c9;
-  text-shadow: 0 4px 18px rgba(120, 100, 190, 0.18);
+  line-height: 1.1;
+}
+
+h1 small {
+  display: block;
+  margin-top: 6px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #666;
 }
 
 h1::after {
@@ -274,7 +285,11 @@ h1::after {
   }
 
   h1 {
-    font-size: 36px;
+    font-size: 30px;
+    line-height: 1.2;
+    text-align: center;
+    word-break: keep-all;
+    overflow-wrap: normal;
   }
 
   .app {
