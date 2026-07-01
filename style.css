@@ -1,110 +1,287 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
-    background:
-        radial-gradient(circle at top, #2c355d, #111827);
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Yu Gothic UI", "Hiragino Sans", sans-serif;
+  color: #3f3b5f;
+  background:
+    radial-gradient(circle at 20% 10%, rgba(255, 255, 255, 0.9), transparent 28%),
+    radial-gradient(circle at 80% 5%, rgba(200, 190, 255, 0.35), transparent 30%),
+    linear-gradient(rgba(247, 247, 251, 0.88), rgba(247, 247, 251, 0.96)),
+    #f4f4f7;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(115deg, transparent 0 48%, rgba(130, 125, 165, 0.16) 49%, transparent 50%),
+    linear-gradient(65deg, transparent 0 48%, rgba(130, 125, 165, 0.12) 49%, transparent 50%),
+    radial-gradient(circle, rgba(255, 255, 255, 0.95) 1px, transparent 2px),
+    radial-gradient(circle, rgba(255, 255, 255, 0.9) 2px, transparent 3px);
+  background-size:
+    120px 120px,
+    120px 120px,
+    170px 170px,
+    260px 260px;
+  opacity: 0.75;
+  pointer-events: none;
+  z-index: -2;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  top: -120px;
+  left: -10%;
+  width: 120%;
+  height: 360px;
+  background:
+    radial-gradient(ellipse at center, rgba(170, 165, 205, 0.28), transparent 62%),
+    repeating-linear-gradient(
+      8deg,
+      transparent 0 22px,
+      rgba(120, 115, 160, 0.16) 23px,
+      transparent 24px
+    );
+  border-bottom: 2px solid rgba(255, 255, 255, 0.8);
+  border-radius: 0 0 50% 50%;
+  filter: blur(0.2px);
+  pointer-events: none;
+  z-index: -1;
 }
 
 .app {
-  max-width: 640px;
+  max-width: 1180px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 36px 20px 48px;
 }
 
 h1 {
-  text-align: center;
+  margin: 0 0 6px;
+  font-family: "Times New Roman", "Yu Mincho", serif;
+  font-size: 46px;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  color: #8775c9;
+  text-shadow: 0 4px 18px rgba(120, 100, 190, 0.18);
+}
+
+h1::after {
+  content: " ✦";
   font-size: 28px;
 }
 
 .tabs {
   display: flex;
-  gap: 8px;
-  margin: 20px 0;
+  gap: 10px;
+  margin: 28px 0 20px;
 }
 
 .tab {
-  flex: 1;
-  padding: 12px;
-  border: none;
-  border-radius: 999px;
-  background: #e7ddea;
-  font-weight: bold;
+  min-width: 140px;
+  padding: 14px 22px;
+  border: 1px solid rgba(155, 140, 210, 0.45);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.72);
+  color: #7567b6;
+  font-weight: 700;
+  box-shadow: 0 8px 22px rgba(90, 80, 130, 0.08);
+  cursor: pointer;
+}
+
+.tab::before {
+  content: "☆ ";
 }
 
 .tab.active {
-  background: #b784c7;
-  color: white;
+  color: #ffffff;
+  background: linear-gradient(135deg, #9b84df, #7e68c9);
+  box-shadow: 0 10px 24px rgba(125, 104, 201, 0.28);
+}
+
+.items,
+.summary-card {
+  background: rgba(255, 255, 255, 0.76);
+  border: 1px solid rgba(255, 255, 255, 0.86);
+  border-radius: 26px;
+  box-shadow: 0 14px 34px rgba(78, 72, 110, 0.11);
+  backdrop-filter: blur(18px);
+}
+
+.items {
+  padding: 24px;
+}
+
+.items::before {
+  content: "🛍 グッズ一覧";
+  display: block;
+  margin-bottom: 16px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(130, 120, 170, 0.18);
+  font-size: 20px;
+  font-weight: 800;
+  color: #3f3b5f;
 }
 
 .item {
-  background: white;
-  border-radius: 18px;
-  padding: 16px;
-  margin-bottom: 14px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(130, 120, 170, 0.14);
+}
+
+.item:last-child {
+  border-bottom: none;
 }
 
 .item-header {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 12px;
-  font-weight: bold;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  margin-bottom: 10px;
+  font-weight: 800;
+}
+
+.item-header span:last-child {
+  color: #5f5a7c;
+  font-weight: 600;
 }
 
 .counter-row {
-  display: flex;
+  display: grid;
+  grid-template-columns: 110px 1fr;
   align-items: center;
-  justify-content: space-between;
-  margin: 10px 0;
+  gap: 12px;
+  margin: 8px 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: #5f5a7c;
 }
 
 .counter {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
 }
 
 .counter button {
-    width: 42px;
-    height: 42px;
-    border-radius: 14px;
-    background: #7564ff;
-    color: white;
-    font-size: 20px;
+  width: 34px;
+  height: 34px;
+  border: none;
+  border-radius: 10px;
+  background: #eeeafd;
+  color: #816ed0;
+  font-size: 22px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.counter button:hover {
+  color: #ffffff;
+  background: #8b73df;
 }
 
 .count {
-  min-width: 24px;
+  min-width: 30px;
   text-align: center;
-  font-weight: bold;
+  font-size: 22px;
+  font-weight: 700;
+  color: #32304f;
 }
 
 .summary {
-  margin-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 22px;
 }
 
 .summary-card {
-  background: white;
-  border-radius: 18px;
-  padding: 16px;
-  margin-bottom: 12px;
+  padding: 24px;
+  text-align: center;
 }
 
 .summary-card h2 {
-  margin-top: 0;
-  font-size: 18px;
+  margin: 0 0 20px;
+  color: #8b73df;
+  font-size: 20px;
 }
 
-.total {
-  background: #efe1f3;
-  font-weight: bold;
+.summary-card h2::after {
+  content: " ✦";
+}
+
+.summary-card p {
+  margin: 12px 0;
+  line-height: 1.7;
+}
+
+.summary-card span {
+  font-size: 26px;
+  font-weight: 800;
+  color: #34324f;
+}
+
+.summary-card.total {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.summary-card.total span {
+  font-size: 46px;
+}
+
+.summary-card hr {
+  border: none;
+  border-top: 1px solid rgba(130, 120, 170, 0.18);
+  margin: 18px 0;
 }
 
 .reset {
-  width: 100%;
-  margin-top: 12px;
-  padding: 14px;
+  display: block;
+  width: min(320px, 100%);
+  margin: 20px auto 0;
+  padding: 15px 24px;
   border: none;
-  border-radius: 999px;
-  background: #555;
-  color: white;
-  font-weight: bold;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #9b84df, #7e68c9);
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 800;
+  box-shadow: 0 10px 24px rgba(125, 104, 201, 0.28);
+  cursor: pointer;
+}
+
+.reset::before {
+  content: "↻ ";
+}
+
+@media (max-width: 860px) {
+  .summary {
+    grid-template-columns: 1fr;
+  }
+
+  .tabs {
+    gap: 8px;
+  }
+
+  .tab {
+    min-width: auto;
+    flex: 1;
+    padding: 12px 10px;
+  }
+
+  h1 {
+    font-size: 36px;
+  }
+
+  .app {
+    padding: 28px 14px 40px;
+  }
 }
