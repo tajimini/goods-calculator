@@ -38,11 +38,22 @@ function createInitialData() {
 function loadData() {
   const saved = localStorage.getItem(storageKey);
 
-  if (saved) {
-    return JSON.parse(saved);
+  if (!saved) {
+    return createInitialData();
   }
 
-  return createInitialData();
+  const parsed = JSON.parse(saved);
+  const fresh = createInitialData();
+
+  Object.keys(fresh).forEach(user => {
+    products.forEach(product => {
+      if (parsed[user] && parsed[user][product.id]) {
+        fresh[user][product.id] = parsed[user][product.id];
+      }
+    });
+  });
+
+  return fresh;
 }
 
 function saveData() {
