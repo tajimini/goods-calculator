@@ -1,8 +1,6 @@
 body {
-  margin: 0;
-  background: #f7f3f8;
-  font-family: system-ui, sans-serif;
-  color: #333;
+    background:
+        radial-gradient(circle at top, #2c355d, #111827);
 }
 
 .app {
@@ -65,13 +63,12 @@ h1 {
 }
 
 .counter button {
-  width: 36px;
-  height: 36px;
-  border: none;
-  border-radius: 50%;
-  background: #d9c1df;
-  font-size: 20px;
-  font-weight: bold;
+    width: 42px;
+    height: 42px;
+    border-radius: 14px;
+    background: #7564ff;
+    color: white;
+    font-size: 20px;
 }
 
 .count {
